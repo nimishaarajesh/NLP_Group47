@@ -1,5 +1,6 @@
 Install the following library(if not satisfied):
 pip install flask transformers torch
+pip install --upgrade flask transformers torch
 
 
 Import the following libraries:
