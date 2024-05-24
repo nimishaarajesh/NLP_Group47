@@ -1,5 +1,12 @@
 #Task 2 and Task 5 : Build Web Service to host model with log function
 
+#Importing required libraries
+from flask import Flask, request, jsonify
+from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
+import numpy as np
+import logging
+from datetime import datetime
+import json
 
 
 #Creation of flask instance
