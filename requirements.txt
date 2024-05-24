@@ -1,0 +1,11 @@
+Install the following library(if not satisfied):
+pip install flask transformers torch
+
+
+Import the following libraries:
+from flask import Flask, request, jsonify
+from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
+import numpy as np
+import logging
+from datetime import datetime
+import json
