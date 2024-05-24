@@ -5,3 +5,5 @@ torch==1.10.0
 numpy==1.21.2
 requests==2.26.0
 flask==2.0.2
+werkzeug==2.0.2
+ipython==7.27.0
