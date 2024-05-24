@@ -1,0 +1,34 @@
+name: NLP Model Deployment
+on:
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code Info
+        uses: actions/checkout@v2
+
+      - name: Python Setup
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          pip install nbconvert
+
+      - name: Convert Notebook and Train Model
+        run: |
+          source venv/bin/activate
+          jupyter nbconvert --to script test_deployed_endpoint.ipynb
+          python app.py
+
+      - name: Deploy Model
+        run: |
+          source venv/bin/activate
+          nohup python app.py &
